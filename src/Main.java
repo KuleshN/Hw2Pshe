@@ -36,7 +36,7 @@ public class Main {
         stgroup.setStudentCount(18);
         stgroup.printInfo();
 
-        Circle circle1 = new Circle(3);
+        Circle circle1 = new Circle(3.5);
         double resultArea = circle1.calculateArea();
         double resultLong = circle1.calculateCircumference();
         System.out.println("площадь: " +resultArea+", длина: "+resultLong);
@@ -48,7 +48,7 @@ public class Main {
         teacher1.setSubject("English");
         teacher1.printInfo();
 
-        Product priceForCucumber = new Product("Cucumber",100);
+        Product priceForCucumber = new Product("Cucumber",99);
         priceForCucumber.printInfo();
         priceForCucumber.applyDiscount(13);
         priceForCucumber.printInfo();
@@ -124,6 +124,7 @@ class Book{
     public void setAuthor(String author){
         this.author=author;
     }
+    public void setTitle (String title){this.title=title;}
     public void printInfo(){
         System.out.println(getTitle()+" автор:"+ getAuthor());
     }
@@ -202,8 +203,8 @@ class StudentGroup{
     }
 }
 class Circle{
-    int radius;
-    Circle(int radius){
+    double radius;
+    Circle(double radius){
         this.radius=radius;
     }
     public double getRadius(){
@@ -236,6 +237,7 @@ class Teacher{
     public void setSubject(String subject){
         this.subject=subject;
     }
+    public void setName(String name){this.name=name;}
     public void printInfo(){
         System.out.println(getName()+" "+ getSubject());
     }
@@ -243,7 +245,7 @@ class Teacher{
 }
 class Product{
     String name;
-    int price;
+    double price;
     Product(String name, int price){
         this.name=name;
         this.price=price;
@@ -251,14 +253,14 @@ class Product{
     public String getName(){
         return name;
     }
-    public int getPrice(){
+    public double getPrice(){
         return price;
     }
-    public void setPrice(int price){
+    public void setPrice(double price){
         this.price = price;
     }
     public double applyDiscount(int discount){
-        int newPrice = price - (price*discount/100);
+        double newPrice = price - (price*discount/100);
         setPrice(newPrice);
         return newPrice;
     }
@@ -282,6 +284,7 @@ class Laptop{
     public void setPrice(int price){
         this.price=price;
     }
+    public void setBrand(String brand){this.brand=brand;}
     public void printInfo(){
         System.out.println("Модель: "+getBrand()+" цена: "+ getPrice());
     }
